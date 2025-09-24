@@ -1,0 +1,33 @@
+import {Link} from 'react-router';
+import Score from "~/components/score";
+
+
+const ResumeCard = ({ resume: {id, companyName, jobTitle, feedback, imagePath}}: {resume: Resume}) => {
+    return (
+        <Link to={`/resume/${id}`} className="resume-card animate-in fade-in duration-1000">
+            <div className="resume-card-header">
+                <div className="flex flex-col gap-2">
+                    <h2 className="!text-balck font-bold break-words">
+                        {companyName}
+                    </h2>
+                    <h3 className="text-lg brak-words text-gray-500">
+                        {jobTitle}
+                    </h3>
+                </div>
+                <div className="flex-shrink-0">
+                    <Score score={feedback.overallScore}/>
+                </div>
+            </div>
+            <div className="gradient-border animate-in fade-in duration-1000">
+                <div className="w-full h-full">
+                    <img
+                        src={imagePath}
+                        alt="resume"
+                        className="w-[60] h-full max-sm:h-[800px] object-cover "/>
+                </div>
+            </div>
+        </Link>
+    )
+}
+
+export default ResumeCard;
