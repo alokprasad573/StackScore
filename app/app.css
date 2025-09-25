@@ -37,7 +37,7 @@ h2 {
 }
 
 label {
-    @apply text-dark-200;
+    @apply text-dark-200 text-xl;
 }
 input {
     @apply w-full p-4 inset-shadow  rounded-2xl focus:outline-none bg-white;
