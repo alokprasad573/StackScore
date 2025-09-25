@@ -18,50 +18,69 @@ const Upload = () => {
         setFile(file)
     }
 
-    const handleAnalyze = async ({ companyName, jobTitle, jobDescription, file }: { companyName: string, jobTitle: string, jobDescription: string, file: File  }) => {
+    const handleAnalyze = async ({companyName, jobTitle, jobDescription, file}: { companyName: string, jobTitle: string, jobDescription: string, file: File }) => {
         setIsProcessing(true);
 
-        setStatusText('Uploading the file...');
-        const uploadedFile = await fs.upload([file]);
-        if(!uploadedFile) return setStatusText('Error: Failed to upload file');
+        try {
+            setStatusText("Uploading the file...");
+            const uploadedFile = await fs.upload([file]);
+            if (!uploadedFile) return setStatusText("Failed to upload file.");
 
-        setStatusText('Converting to image...');
-        const imageFile = await convertPdfToImage(file);
-        if(!imageFile.file) return setStatusText('Error: Failed to convert PDF to image');
+            setStatusText("Converting to image...");
+            const imageFile = await convertPdfToImage(file);
+            if (!imageFile.file) return setStatusText("Failed to convert PDF to image.");
 
-        setStatusText('Uploading the image...');
-        const uploadedImage = await fs.upload([imageFile.file]);
-        if(!uploadedImage) return setStatusText('Error: Failed to upload image');
+            setStatusText("Uploading the image...");
+            const uploadedImage = await fs.upload([imageFile.file]);
+            if (!uploadedImage) return setStatusText("Failed to upload image.");
 
-        setStatusText('Preparing data...');
-        const uuid = generateUUID();
-        const data = {
-            id: uuid,
-            resumePath: uploadedFile.path,
-            imagePath: uploadedImage.path,
-            companyName, jobTitle, jobDescription,
-            feedback: '',
+            setStatusText("Preparing data...");
+            const uuid = generateUUID();
+            const data = {
+                id: uuid,
+                resumePath: uploadedFile.path,
+                imagePath: uploadedImage.path,
+                companyName,
+                jobTitle,
+                jobDescription,
+                feedback: "",
+            };
+            await kv.set(`resume:${uuid}`, JSON.stringify(data));
+
+            setStatusText("Analyzing...");
+            const feedback = await ai.feedback(
+                uploadedFile.path,
+                prepareInstructions({ jobTitle, jobDescription })
+            );
+            if (!feedback) return setStatusText("Failed to analyze resume.");
+
+            let feedbackText = "";
+            const content = await feedback.message?.content;
+
+            if (typeof content === "string") {
+                feedbackText = content;
+            } else if (Array.isArray(content) && content[0]?.text) {
+                feedbackText = content[0].text;
+            } else {
+                return setStatusText("Unexpected feedback format.");
+            }
+
+            try {
+                data.feedback = JSON.parse(feedbackText);
+            } catch (err) {
+                console.error("Failed to parse feedback JSON:", err);
+                return setStatusText("Error parsing feedback.");
+            }
+
+            await kv.set(`resume:${uuid}`, JSON.stringify(data));
+            setStatusText("Analysis complete, redirecting...");
+            console.log(data);
+            navigate(`/resume/${uuid}`);
+        } catch (err) {
+            console.error("Unhandled error during analysis:", err);
+            setStatusText("Something went wrong during analysis.");
         }
-        await kv.set(`resume:${uuid}`, JSON.stringify(data));
-
-        setStatusText('Analyzing...');
-
-        const feedback = await ai.feedback(
-            uploadedFile.path,
-            prepareInstructions({ jobTitle, jobDescription })
-        )
-        if (!feedback) return setStatusText('Error: Failed to analyze resume');
-
-        const feedbackText = typeof feedback.message.content === 'string'
-            ? feedback.message.content
-            : feedback.message.content[0].text;
-
-        data.feedback = JSON.parse(feedbackText);
-        await kv.set(`resume:${uuid}`, JSON.stringify(data));
-        setStatusText('Analysis complete, redirecting...');
-        console.log(data);
-        navigate(`/resume/${uuid}`);
-    }
+    };
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
