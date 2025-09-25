@@ -7,6 +7,12 @@ import {convertPdfToImage} from "~/lib/pdf2img";
 import {generateUUID} from "~/lib/utils";
 import {prepareInstructions} from "../../constants";
 
+
+export const meta = () => ([
+    { title: 'StackScore | Upload Resume'},
+    { name: 'description', content: 'Upload Your Resume Here.' },
+])
+
 const Upload = () => {
     const { auth, isLoading, fs, ai, kv } = usePuterStore();
     const navigate = useNavigate();
@@ -74,7 +80,6 @@ const Upload = () => {
 
             await kv.set(`resume:${uuid}`, JSON.stringify(data));
             setStatusText("Analysis complete, redirecting...");
-            console.log(data);
             navigate(`/resume/${uuid}`);
         } catch (err) {
             console.error("Unhandled error during analysis:", err);
@@ -115,15 +120,15 @@ const Upload = () => {
                         <form id="upload-form" onSubmit={handleSubmit} className="flex flex-col gap-4 mt-8 ">
                             <div className="form-div">
                                 <label htmlFor="company-name">Company Name</label>
-                                <input type="text" name="company-name" placeholder="E.g. Meta" id="company-name"  />
+                                <input type="text" name="company-name" placeholder="E.g. Meta" id="company-name" required={true} />
                             </div>
                             <div className="form-div">
                                 <label htmlFor="job-title">Job Title</label>
-                                <input type="text" name="job-title" placeholder="E.g Cloud Engineer" id="company-name"  />
+                                <input type="text" name="job-title" placeholder="E.g Cloud Engineer" id="company-name" required={true} />
                             </div>
                             <div className="form-div">
                                 <label htmlFor="job-description">Job Description</label>
-                                <textarea rows={5} name="job-description" placeholder="Write a brief professional summary highlighting your skills, experience, and career goals." id="company-name"  />
+                                <textarea rows={5} name="job-description" placeholder="Write a brief professional summary highlighting your skills, experience, and career goals." id="company-name"  required={true} />
                             </div>
                             <div>
                                 <label htmlFor="uploader">Upload Resume</label>
@@ -131,11 +136,10 @@ const Upload = () => {
                                     <FileUploader onFileSelect={handleFileSelect} />
                                 </div>
                             </div>
-                            <button className="upload-button" type="submit">
+                            <button className="all-button" type="submit">
                                 Next
                             </button>
                         </form>
-
                     )}
                 </div>
             </section>

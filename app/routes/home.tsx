@@ -6,6 +6,11 @@ import {usePuterStore} from "~/lib/puter";
 import {Link, useLocation, useNavigate} from "react-router";
 import {useEffect} from "react";
 
+export const meta = () => ([
+    { title: 'StackScore | Home'},
+    { name: 'description', content: 'Home Page' },
+])
+
 export default function Home() {
 
     const {  auth } = usePuterStore();

@@ -60,12 +60,12 @@ form {
         @apply bg-gradient-to-b from-light-blue-100 to-light-blue-200 p-4 rounded-2xl;
     }
 
-    .upload-button {
-        @apply upload-gradient  text-white rounded-md px-4 py-2 cursor-pointer w-fit;
+    .all-button {
+        @apply upload-gradient  text-white rounded-lg px-4 py-2 cursor-pointer w-fit;
     }
 
     .resume-nav {
-        @apply flex flex-row justify-between items-center p-4 border-b border-gray-200;
+        @apply flex flex-row justify-between items-center py-2 px-[15%];
     }
     .resume-summary {
         @apply flex flex-row items-center justify-center p-4 gap-4;
@@ -73,9 +73,11 @@ form {
             @apply flex flex-row gap-2 items-center bg-gray-50 rounded-2xl p-4 w-full justify-between;
         }
     }
-    .back-button {
-        @apply flex flex-row items-center gap-2 border border-gray-200 rounded-lg p-2 shadow-sm;
-    }
+
+    /*.submit-button {*/
+    /*    @apply  upload-gradient text-white rounded-lg px-4 py-2 cursor-pointer w-fit;*/
+    /*}*/
+
     .auth-button {
         @apply upload-gradient rounded-full py-4 px-8 cursor-pointer w-[600px] max-md:w-full text-3xl font-semibold text-white;
     }
