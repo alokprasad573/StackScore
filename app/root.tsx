@@ -36,28 +36,28 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <html lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <head>
+        <meta charSet="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <title>StackScore</title>
-        <Meta />
-        <Links />
-      </head>
-      <body>
-      <script src="https://js.puter.com/v2/"></script>
-      {children}
-        <ScrollRestoration />
-        <Scripts />
-      </body>
+        <Meta/>
+        <Links/>
+    </head>
+    <body>
+    <script src="https://js.puter.com/v2/"></script>
+    {children}
+    <ScrollRestoration/>
+    <Scripts/>
+    </body>
     </html>
   );
 }
 
 export default function App() {
-  return <Outlet />;
+    return <Outlet/>;
 }
 
-export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
+export function ErrorBoundary({error}: Route.ErrorBoundaryProps) {
   let message = "Oops!";
   let details = "An unexpected error occurred.";
   let stack: string | undefined;

@@ -77,7 +77,7 @@ const Upload = () => {
                             </div>
                         </div>
                         <button className="upload-button" type="submit">
-                            Evaluate resume
+                           Next
                         </button>
                     </form>
 
