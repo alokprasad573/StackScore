@@ -46,7 +46,12 @@ const FileUploader: React.FC<FileUploaderProps> = ({ onFileSelect }: FileUploade
                                     </p>
                                 </div>
                             </div>
-                            <button className="p-2 cursor-alias" onClick={(e) => onFileSelect?.(null)}>
+                            <button className="p-2 cursor-alias" onClick={(e) => {
+                                e.stopPropagation();
+                                setFile(null);
+                                onFileSelect?.(null);
+                            }}
+                            >
                                 <img src="/icons/cross.svg" alt="remove" className="w-4 h-4"/>
                             </button>
                         </div>

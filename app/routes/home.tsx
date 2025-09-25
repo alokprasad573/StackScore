@@ -6,7 +6,6 @@ import {usePuterStore} from "~/lib/puter";
 import {Link, useLocation, useNavigate} from "react-router";
 import {useEffect} from "react";
 
-
 export default function Home() {
 
     const {  auth } = usePuterStore();
@@ -27,7 +26,6 @@ export default function Home() {
               <h1>Score Your Resume. <br/> Sharpen Your Edge.</h1>
               <h2>Get Instant Feedback on Your Resume from AI.</h2>
           </div>
-
           {resumes.length > 0 && (
               <div className="resumes-section">
                   {resumes.map((resume) => (
