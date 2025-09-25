@@ -1,10 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Lora:wght@400;600&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @theme {
-    --font-sans: "Mona Sans", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-serif: 'Lora', ui-serif, Georgia, serif;
 
     --color-dark-200: #1E3A8A;
     --color-light-blue-100: #e0ecff1a; /* softened from #c1d3f81a */
@@ -22,25 +22,25 @@
 
 html,
 body {
-    @apply bg-white;
+    @apply bg-white font-sans;
 }
 
 main {
     @apply min-h-screen pt-10;
 }
 h1 {
-    @apply max-sm:text-[3rem] text-6xl  text-gradient leading-tight xl:tracking-[-2px] font-semibold;
+    @apply max-sm:text-[3rem] text-6xl  text-gradient leading-tight xl:tracking-[-2px] font-serif;
 }
 
 h2 {
-    @apply max-sm:text-xl text-3xl text-dark-200;
+    @apply max-sm:text-xl text-3xl font-serif text-dark-200;
 }
 
 label {
     @apply text-dark-200;
 }
 input {
-    @apply w-full p-4 inset-shadow rounded-2xl focus:outline-none bg-white;
+    @apply w-full p-4 inset-shadow  rounded-2xl focus:outline-none bg-white;
 }
 
 textarea {
@@ -61,7 +61,7 @@ form {
     }
 
     .upload-button {
-        @apply upload-gradient text-white rounded-md px-4 py-2 cursor-pointer w-full;
+        @apply upload-gradient  text-white rounded-md px-4 py-2 cursor-pointer w-full;
     }
 
     .resume-nav {
@@ -117,7 +117,7 @@ form {
     }
 
     .form-div {
-        @apply flex flex-col gap-2 w-full items-start;
+        @apply flex flex-col gap-2 w-full items-start ;
     }
 
     .uploader-drag-area {

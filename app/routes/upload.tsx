@@ -1,11 +1,23 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import Navbar from "~/components/navbar";
 import FileUploader from "~/components/FileUploader";
+import {usePuterStore} from "~/lib/puter";
+import {useNavigate} from "react-router";
 
 const Upload = () => {
     const [isProcessing, setIsProcessing] = useState(false);
     const [statusText, setStatusText] = useState("");
     const [file, setFile] = useState<File | null>(null)
+
+    const {  auth } = usePuterStore();
+    const navigate = useNavigate();
+
+    //Redirection Logic
+    useEffect(() => {
+        if(!auth.isAuthenticated) {
+            navigate('/auth?next=/');
+        }
+    }, [auth.isAuthenticated]);
 
     const handleFileSelect = (file: File | null) => {
         setFile(file);
@@ -45,7 +57,7 @@ const Upload = () => {
                     <h2>Upload Your Resume for ATS Optimization.</h2>
                 )}
                 {!isProcessing && (
-                    <form id="upload-form" onSubmit={handleSubmit} className="flex flex-col gap-4 mt-8">
+                    <form id="upload-form" onSubmit={handleSubmit} className="flex flex-col gap-4 mt-8  font-bold text-2xl">
                         <div className="form-div">
                             <label htmlFor="company-name">Company Name</label>
                             <input type="text" name="company-name" placeholder="Company Name" id="company-name"  />

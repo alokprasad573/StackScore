@@ -1,6 +1,7 @@
 import {usePuterStore} from "~/lib/puter";
 import {useEffect} from "react";
-import {useLocation, useNavigate} from "react-router";
+import {Link, useLocation, useNavigate} from "react-router";
+import Navbar from "~/components/navbar";
 
 
 export const meta = () => ([
@@ -22,12 +23,14 @@ const Auth = () => {
     }, [auth.isAuthenticated, next]);
 
     return (
-        <main className="min-h-screen inset-0 bg-gradient-to-b from-[#1E3A8A]/50 via-[#3B82F6]/50 to-[#60A5FA]/50 flex items-center justify-center">
-            <div className="gradient-border shadow-lg">
+
+        <main className="inset-0 bg-gradient-to-b from-[#1E3A8A]/50 via-[#3B82F6]/50 to-[#60A5FA]/50">
+            <Navbar />
+            <div className=" w-fit fixed top-1/4 left-1/4 gradient-border shadow-lg">
                 <section className="flex flex-col gap-8 bg-white rounded-2xl p-10">
                     <div>
                         <h1>Welcome</h1>
-                        <h2>SignIn to Continue Your Job Journey.</h2>
+                        <p className="text-xl max-sm:text-xl  font-serif text-dark-200">Please SignIn to continue ...</p>
                     </div>
                     <div>
                         {isLoading ? (
