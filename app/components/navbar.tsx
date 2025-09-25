@@ -6,7 +6,7 @@ const Navbar = () => {
             <Link to="/">
                 <p className="text-4xl font-bold text-gradient">StackScore</p>
             </Link>
-            <Link to="/upload" className="upload-button w-fit">
+            <Link to="/upload" className="all-button w-fit">
                 Upload Resume
             </Link>
         </nav>
