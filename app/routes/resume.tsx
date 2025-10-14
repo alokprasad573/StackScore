@@ -23,12 +23,11 @@ const Resume = () => {
 
     useEffect(() => {
         const loadResume = async () => {
-            const resume = await kv.get(`resumes:${id}`);
+            const resume = await kv.get(`resume:${id}`);
 
             if(!resume) return;
 
             const data = JSON.parse(resume);
-
             const resumeBlob = await fs.read(data.resumePath);
             if(!resumeBlob) return;
 
@@ -59,15 +58,17 @@ const Resume = () => {
                      <span>Upload Resume</span>
                  </Link>
              </nav>
-            <div className="flex flex-row w-full max-lg:flex-col-reverse">
-                <section className="feedback-section bg-[url('/images/bg-small.svg') bg-cover h-[100vh] sticky top-0 items-center justify-center">
-                    {imageUrl && resumeUrl && (
-                        <div className="animate-in fade-in duration-1000 gradiet-border max-sm:m-0 h-[90%] max-w-xl:h-fit w-fit">
-                            <a>
-                                <img src={imageUrl} className="w-full h-full object-contain rounded-2xl" title="resume"/>
+            <div className="flex flex-row justify-evenly w-full max-lg:flex-col-reverse">
+                {/*<section>*/}
+                {/*To start to code here.*/}
+                {/*</section>*/}
+                <section className="feedback-section  h-[100vh] sticky top-0 items-center justify-center">
+                    {imageUrl && resumeUrl &&
+                        (<div className="animate-in fade-in duration-1000 gradiet-border max-sm:m-0 h-[90%] max-w-xl:h-fit w-fit">
+                            <a href={resumeUrl} target="_blank" rel="noopener noreferrer">
+                                <img src={imageUrl} className="w-full h-[90%] object-contain rounded-sm" title="resume"/>
                             </a>
-                        </div>
-                    )
+                        </div>)
                     }
                 </section>
             </div>
