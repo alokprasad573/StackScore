@@ -60,9 +60,6 @@ form {
         @apply bg-gradient-to-b from-light-blue-100 to-light-blue-200 p-4 rounded-2xl;
     }
 
-    .all-button {
-        @apply upload-gradient  text-white rounded-lg px-4 py-2 cursor-pointer w-fit;
-    }
 
     .resume-nav {
         @apply flex flex-row justify-between items-center py-2 px-[15%];
@@ -74,9 +71,13 @@ form {
         }
     }
 
-    /*.submit-button {*/
-    /*    @apply  upload-gradient text-white rounded-lg px-4 py-2 cursor-pointer w-fit;*/
-    /*}*/
+    .all-button {
+        @apply upload-gradient  text-white rounded-lg px-4 py-2 cursor-pointer w-fit;
+    }
+
+    .back-button {
+        @apply flex flex-row items-center gap-2 text-white upload-gradient rounded-lg p-2 shadow-sm;
+    }
 
     .auth-button {
         @apply upload-gradient rounded-full py-4 px-8 cursor-pointer w-[600px] max-md:w-full text-3xl font-semibold text-white;

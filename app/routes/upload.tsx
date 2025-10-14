@@ -2,7 +2,7 @@ import {type FormEvent, useState} from 'react'
 import Navbar from "~/components/navbar";
 import FileUploader from "~/components/FileUploader";
 import {usePuterStore} from "~/lib/puter";
-import {useNavigate} from "react-router";
+import {Link, useNavigate} from "react-router";
 import {convertPdfToImage} from "~/lib/pdf2img";
 import {generateUUID} from "~/lib/utils";
 import {prepareInstructions} from "../../constants";
@@ -72,6 +72,7 @@ const Upload = () => {
             }
 
             try {
+                console.log(JSON.parse(feedbackText));
                 data.feedback = JSON.parse(feedbackText);
             } catch (err) {
                 console.error("Failed to parse feedback JSON:", err);
@@ -99,12 +100,16 @@ const Upload = () => {
 
         if(!file) return;
 
-        handleAnalyze({ companyName, jobTitle, jobDescription, file });
+       handleAnalyze({ companyName, jobTitle, jobDescription, file });
     }
 
     return (
         <main className="inset-0 bg-gradient-to-b from-[#1E3A8A]/50 via-[#3B82F6]/50 to-[#60A5FA]/50">
-            <Navbar />
+            <nav className='navbar'>
+                <Link to="/">
+                    <p className="text-4xl font-bold text-gradient">StackScore</p>
+                </Link>
+            </nav>
             <section className="main-section">
                 <div className="page-heading py-16 ">
                     <h1>Focused Feedback for Your Dream Role.</h1>
@@ -137,7 +142,7 @@ const Upload = () => {
                                 </div>
                             </div>
                             <button className="all-button" type="submit">
-                                Next
+                                Submit
                             </button>
                         </form>
                     )}

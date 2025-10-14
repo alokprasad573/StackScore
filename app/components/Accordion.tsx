@@ -144,11 +144,7 @@ interface AccordionContentProps {
     className?: string;
 }
 
-export const AccordionContent: React.FC<AccordionContentProps> = ({
-                                                                      itemId,
-                                                                      children,
-                                                                      className = "",
-                                                                  }) => {
+export const AccordionContent: React.FC<AccordionContentProps> = ({itemId, children, className = "",}) => {
     const { isItemActive } = useAccordion();
     const isActive = isItemActive(itemId);
 
