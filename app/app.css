@@ -7,8 +7,8 @@
     --font-serif: 'Lora', ui-serif, Georgia, serif;
 
     --color-dark-200: #1E3A8A;
-    --color-light-blue-100: #e0ecff1a; /* softened from #c1d3f81a */
-    --color-light-blue-200: #c2ddff4d; /* softened from #a7bff14d */
+    --color-light-blue-100: #e0ecff1a;
+    --color-light-blue-200: #c2ddff4d;
 
     --color-badge-green: #d5faf1;
     --color-badge-red: #f9e3e2;
@@ -26,29 +26,35 @@ body {
 }
 
 main {
-    @apply min-h-screen pt-10;
+    @apply min-h-screen pt-4 sm:pt-6 md:pt-8 lg:pt-10;
 }
+
 h1 {
-    @apply max-sm:text-[3rem] text-6xl  text-gradient leading-tight xl:tracking-[-2px] font-serif;
+    @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-gradient leading-tight tracking-tight font-serif;
 }
 
 h2 {
-    @apply max-sm:text-xl text-3xl font-serif text-dark-200;
+    @apply text-lg sm:text-xl md:text-2xl lg:text-3xl font-serif text-dark-200;
+}
+
+h3 {
+    @apply text-base sm:text-lg md:text-xl lg:text-2xl font-semibold;
 }
 
 label {
-    @apply text-dark-200 text-xl;
+    @apply text-dark-200 text-base sm:text-lg md:text-xl;
 }
+
 input {
-    @apply w-full p-4 inset-shadow  rounded-2xl focus:outline-none bg-white;
+    @apply w-full p-3 sm:p-4 inset-shadow rounded-xl sm:rounded-2xl focus:outline-none bg-white text-sm sm:text-base;
 }
 
 textarea {
-    @apply w-full p-4 inset-shadow rounded-2xl focus:outline-none bg-white;
+    @apply w-full p-3 sm:p-4 inset-shadow rounded-xl sm:rounded-2xl focus:outline-none bg-white text-sm sm:text-base resize-none;
 }
 
 form {
-    @apply flex flex-col items-start gap-8 w-full;
+    @apply flex flex-col items-start gap-4 sm:gap-6 md:gap-8 w-full;
 }
 
 @layer components {
@@ -62,72 +68,78 @@ form {
 
 
     .resume-nav {
-        @apply flex flex-row justify-between items-center py-2 px-[15%];
+        @apply flex  sm:flex-row justify-between items-center py-2 px-4 sm:px-8 md:px-12 lg:px-[15%] gap-4 sm:gap-0;
     }
+    
     .resume-summary {
-        @apply flex flex-row items-center justify-center p-4 gap-4;
+        @apply flex flex-col sm:flex-row items-center justify-center p-3 sm:p-4 gap-3 sm:gap-4;
         .category {
-            @apply flex flex-row gap-2 items-center bg-gray-50 rounded-2xl p-4 w-full justify-between;
+            @apply flex flex-col sm:flex-row gap-2 items-center bg-gray-50 rounded-xl sm:rounded-2xl p-3 sm:p-4 w-full justify-between;
         }
     }
 
     .all-button {
-        @apply upload-gradient  text-white rounded-lg px-4 py-2 cursor-pointer w-fit;
+        @apply upload-gradient text-white rounded-lg px-3 sm:px-4 py-2 cursor-pointer w-fit text-sm sm:text-base font-medium transition-all duration-300 hover:shadow-lg;
+    }
+
+    .upload-button {
+        @apply upload-gradient text-xl sm:text-2xl md:text-3xl text-white rounded-lg px-4 sm:px-6 py-2 sm:py-3 mt-2 cursor-pointer transition-all duration-300 hover:shadow-lg;
     }
 
     .back-button {
-        @apply flex flex-row items-center gap-2 text-white upload-gradient rounded-lg p-2 shadow-sm;
+        @apply flex flex-row items-center gap-2 text-white upload-gradient rounded-lg p-2 sm:p-3 shadow-sm transition-all duration-300 hover:shadow-lg;
     }
 
     .auth-button {
-        @apply upload-gradient rounded-full py-4 px-8 cursor-pointer w-[600px] max-md:w-full text-3xl font-semibold text-white;
+        @apply upload-gradient rounded-full py-3 sm:py-4 px-6 sm:px-8 cursor-pointer w-full max-w-[600px] text-xl sm:text-2xl md:text-3xl font-semibold text-white transition-all duration-300 hover:shadow-lg;
     }
 
     .main-section {
-        @apply flex flex-col items-center gap-8 pt-12 max-sm:mx-2 mx-10 pb-5;
+        @apply flex flex-col items-center gap-6 sm:gap-8 pt-8 sm:pt-12 px-4 sm:px-6 md:px-8 lg:px-10 pb-5;
     }
 
     .page-heading {
-        @apply flex flex-col items-center gap-8 max-w-4xl text-center max-sm:gap-4;
+        @apply flex flex-col items-center gap-6 sm:gap-8 max-w-4xl text-center;
     }
 
     .resumes-section {
-        @apply flex flex-row flex-wrap max-lg:flex-col gap-6 items-center w-full max-w-[1850px] justify-center;
+        @apply flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-6 items-center w-full max-w-[1850px] justify-center;
     }
 
     .resume-card {
-        @apply flex flex-col gap-8 h-[800px] lg:w-[420px] xl:w-[490px]
-        bg-white text-dark-200 rounded-2xl p-4
+        @apply flex flex-col gap-4 sm:gap-6 md:gap-8 h-auto sm:h-[600px] md:h-[700px] lg:h-[800px] w-full sm:w-[350px] md:w-[400px] lg:w-[420px] xl:w-[490px]
+        bg-white text-dark-200 rounded-xl sm:rounded-2xl p-3 sm:p-4
         transition-all duration-300 ease-in-out
         hover:bg-[#b5d5fd]
         hover:shadow-[0_10px_30px_rgba(96,165,250,0.5)] hover:scale-[1.02];
     }
 
     .resume-card-header {
-        @apply flex flex-row gap-2 justify-between min-h-[110px] max-sm:flex-col items-center max-md:justify-center max-md:items-center;
+        @apply flex flex-col sm:flex-row gap-2 sm:gap-4 justify-between min-h-[80px] sm:min-h-[110px] items-center;
     }
 
     .feedback-section {
-        @apply flex flex-col gap-8 w-1/2 px-8 max-lg:w-full py-6;
+        @apply flex flex-col md:flex-row flex-wrap gap-4 sm:gap-6 lg:gap-8;
     }
 
     .navbar {
-        @apply mx-[10%] flex flex-row justify-between;
+        @apply mx-4 sm:mx-6 md:mx-8 lg:mx-[10%] flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0;
     }
 
     .score-badge {
-        @apply flex flex-row items-center justify-center py-1 px-2 gap-4 rounded-[96px];
+        @apply flex flex-row items-center justify-center py-1 px-2 gap-2 sm:gap-4 rounded-[96px];
     }
 
     .form-div {
-        @apply flex flex-col gap-2 w-full items-start ;
+        @apply flex flex-col gap-2 w-full items-start;
     }
 
     .uploader-drag-area {
-        @apply relative p-8 text-center transition-all duration-700 cursor-pointer bg-white rounded-2xl min-h-[208px];
+        @apply relative p-4 sm:p-6 md:p-8 text-center transition-all duration-700 cursor-pointer bg-white rounded-xl sm:rounded-2xl min-h-[150px] sm:min-h-[180px] md:min-h-[208px];
     }
+    
     .uploader-selected-file {
-        @apply flex items-center justify-between p-3 bg-gray-50 rounded-2xl;
+        @apply flex items-center justify-between p-2 sm:p-3 bg-gray-50 rounded-xl sm:rounded-2xl;
     }
 }
 

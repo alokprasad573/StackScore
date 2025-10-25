@@ -7,10 +7,10 @@ const ResumeCard = ({ resume: {id, companyName, jobTitle, feedback, imagePath}}:
         <Link to={`/resume/${id}`} className="resume-card animate-in fade-in duration-1000">
             <div className="resume-card-header">
                 <div className="flex flex-col gap-2">
-                    <h2 className="!text-balck font-bold break-words">
+                    <h2 className="text-black font-bold break-words">
                         {companyName}
                     </h2>
-                    <h3 className="text-lg brak-words text-gray-500">
+                    <h3 className="text-lg break-words text-gray-500">
                         {jobTitle}
                     </h3>
                 </div>
@@ -23,7 +23,7 @@ const ResumeCard = ({ resume: {id, companyName, jobTitle, feedback, imagePath}}:
                     <img
                         src={imagePath}
                         alt="resume"
-                        className="w-[60] h-full max-sm:h-[800px] object-cover "/>
+                        className="w-full h-full object-cover rounded-lg"/>
                 </div>
             </div>
         </Link>

@@ -27,7 +27,6 @@ export const links: Route.LinksFunction = () => [
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
-
     const { init } = usePuterStore();
 
     useEffect(() => {
@@ -40,6 +39,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta charSet="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <title>StackScore</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+              integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+              crossOrigin="anonymous" referrerpolicy="no-referrer"/>
         <Meta/>
         <Links/>
     </head>

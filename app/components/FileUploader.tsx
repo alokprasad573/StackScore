@@ -13,7 +13,7 @@ const FileUploader: React.FC<FileUploaderProps> = ({ onFileSelect }: FileUploade
     const onDrop = useCallback(
         (acceptedFiles: File[]) => {
             const selectedFile = acceptedFiles[0] || null;
-            setFile(selectedFile); // <-- Fix: update state
+            setFile(selectedFile);
             onFileSelect?.(selectedFile);
         },
         [onFileSelect]
@@ -57,15 +57,15 @@ const FileUploader: React.FC<FileUploaderProps> = ({ onFileSelect }: FileUploade
                         </div>
                     ) : (
                         <div>
-                            <div className="mx-auto w-16 h-16 flex items-center justify-center mb-2">
-                                <img src="/icons/info.svg" alt="upload" className="size-20" />
+                            <div className="mx-auto w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center mb-2">
+                                <img src="/icons/info.svg" alt="upload" className="size-16 sm:size-20" />
                             </div>
-                            <p className="text-lg text-gray-500">
+                            <p className="text-base sm:text-lg text-gray-500">
                                 <span className="font-semibold">
                                     Click to Upload
                                 </span>
                             </p>
-                            <p className="text-lg text-gray-500">PDF (max {formatSize(maxFileSize)})</p>
+                            <p className="text-sm sm:text-base text-gray-500">PDF (max {formatSize(maxFileSize)})</p>
                         </div>
                     )}
                 </div>
