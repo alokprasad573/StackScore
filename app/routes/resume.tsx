@@ -68,7 +68,7 @@ const Resume = () => {
                     <div className="flex flex-col">
                         <section className="feedback-section justify-center items-center gap-4 sm:gap-6 lg:gap-8 min-h-[100vh] px-4 sm:px-6 md:px-8 lg:px-10 py-4 sm:py-6">
                             <div className="page-heading py-16">
-                                <h1>Here's Brief Analysis of your Resume.</h1>
+                                <h1>Your Analyzed Resume.</h1>
                             </div>
                             <div className="flex flex-col xl:flex-row items-center justify-center gap-6 sm:gap-8 xl:gap-12 w-full max-w-7xl">
                                 <div className="w-full max-w-2xl xl:flex-1">
@@ -93,10 +93,8 @@ const Resume = () => {
                         </section>
                     </div>
                 ) : (
-                    <div className="flex flex-row justify-evenly w-full max-lg:flex-col-reverse">
-                        <section className="feedback-section my-11">
-                            <img src="/images/resume-scan.gif" className="w-[50%]" alt="resume" />
-                        </section>
+                    <div className="page-heading py-16">
+                        <h2 className="text-center">Please wait, we are loading the results...</h2>
                     </div>
                 )}
             </div>

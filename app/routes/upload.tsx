@@ -118,7 +118,11 @@ const Upload = () => {
                     {isProcessing ? (
                         <>
                             <h2>{statusText}</h2>
-                            <img src="/images/resume-scan.gif" alt="resume-scan" className="w-[50%]"/>
+                            <img
+                                src={statusText === "Analyzing..." ? "/images/resume-scan-2.gif" : "/images/resume-scan.gif"}
+                                alt="resume-scan"
+                                className="w-[50%]"
+                            />
                         </>
                     ) : (
                         <h2>Upload Your Resume for ATS Optimization.</h2>

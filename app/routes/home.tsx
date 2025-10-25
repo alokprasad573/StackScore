@@ -1,9 +1,8 @@
 import Navbar from "~/components/navbar";
-import ResumeCard from "~/components/resume_card"
-import {resumes} from "../../constants";
+
 import {usePuterStore} from "~/lib/puter";
 import {Link, useLocation, useNavigate} from "react-router";
-import {useEffect} from "react";
+import {use, useEffect, useState} from "react";
 
 export const meta = () => ([
     {title: 'StackScore | Home'},
@@ -12,14 +11,16 @@ export const meta = () => ([
 
 export default function Home() {
 
-    const {auth} = usePuterStore();
+    const {auth, kv} = usePuterStore();
     const navigate = useNavigate();
+
 
     useEffect(() => {
         if (!auth.isAuthenticated) {
             navigate('/auth?next=/');
         }
     }, [auth.isAuthenticated]);
+
 
 
     return <main className="inset-0 bg-gradient-to-b from-[#1E3A8A]/50 via-[#3B82F6]/50 to-[#60A5FA]/50">
@@ -37,13 +38,6 @@ export default function Home() {
                 </Link>
             </div>
 
-            {resumes.length > 0 && (
-                <div className="resumes-section">
-                    {resumes.map((resume) => (
-                        <ResumeCard key={resume.id} resume={resume}/>
-                    ))}
-                </div>
-            )}
         </section>
 
     </main>
