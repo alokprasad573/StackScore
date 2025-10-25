@@ -7,7 +7,7 @@ import Details from "~/components/Details";
 
 
 export const meta = () => ([
-    { title: 'StackScore | Review and Feedback' },
+    { title: 'Scanlytics | Review and Feedback' },
     { name: 'description', content: 'Description of overview of resume.' },
 ])
 
