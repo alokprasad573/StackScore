@@ -9,7 +9,7 @@ import {prepareInstructions} from "../../constants";
 
 
 export const meta = () => ([
-    {title: 'Scanlytics | Upload Resume'},
+    {title: 'StackScore | Upload Resume'},
     {name: 'description', content: 'Upload Your Resume Here.'},
 ])
 

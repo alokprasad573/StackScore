@@ -6,7 +6,7 @@ const Navbar = () => {
     return (
         <nav className='navbar'>
             <Link to="/">
-                <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-gradient">Scanlytics</p>
+                <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-gradient">StackScore</p>
             </Link>
 
             {auth.isAuthenticated ? (

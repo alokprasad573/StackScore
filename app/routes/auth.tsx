@@ -5,7 +5,7 @@ import Navbar from "~/components/navbar";
 
 
 export const meta = () => ([
-    {title: 'Scanlytics | Auth'},
+    {title: 'StackScore | Auth'},
     {name: 'description', content: 'Description of Auth'},
 ])
 

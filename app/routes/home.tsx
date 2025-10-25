@@ -5,7 +5,7 @@ import {Link, useLocation, useNavigate} from "react-router";
 import {use, useEffect, useState} from "react";
 
 export const meta = () => ([
-    {title: 'Scanlytics | Home'},
+    {title: 'StackScore | Home'},
     {name: 'description', content: 'Home Page'},
 ])
 
