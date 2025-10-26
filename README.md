@@ -137,7 +137,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## 🗂️ Project Structure
 Below is the key directory structure of the project:
 
----
+```
 
 STACKSCORE/
 ├── .react-router/              # React Router metadata/config
@@ -163,7 +163,7 @@ STACKSCORE/
 ├── vite.config.ts              # Vite build tool configuration
 └── README.md                   # Project documentation
 
----
+```
 
 ## 🤝 Contributing & Support
 
