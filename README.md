@@ -59,8 +59,8 @@ Visit [http://localhost:5173](http://localhost:5173)
 |---------|-------------|
 | `npm run dev` | Start development server |
 | `npm run build` | Build for production |
-| `npm run preview` | Preview production build |
 | `npm run typecheck` | Run TypeScript checks |
+| `npm start` | Preview production build |
 
 > 💡 **Tip**: Use `npm run dev` for development with hot reload enabled
 
