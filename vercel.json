@@ -1,12 +1,17 @@
 {
   "version": 2,
-  "framework": "create-react-app",
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/"
+  "framework": "react-router",
+  "buildCommand": "npm run build",
+  "outputDirectory": "build/client",
+  "functions": {
+    "api/index.js": {
+      "runtime": "nodejs18.x"
     }
-  ],
-    "buildCommand": "npm run build",
-    "outputDirectory": "build"
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/api/index.js"
+    }
+  ]
 }
