@@ -3,10 +3,8 @@
   "framework": "react-router",
   "buildCommand": "npm run build",
   "outputDirectory": "build/client",
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "./build/server/index.js"
-    }
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "./build/server/index.js" }
   ]
 }
