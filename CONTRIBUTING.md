@@ -8,13 +8,15 @@ This guide will help you get started with contributing to the project.
 
 ## 📋 Table of Contents
 
-- [Getting Started](#getting-started)
-- [How to Contribute](#how-to-contribute)
-- [Code Style](#code-style)
-- [Commit Guidelines](#commit-guidelines)
-- [Pull Request Process](#pull-request-process)
-- [Code of Conduct](#code-of-conduct)
-- [Need Help?](#need-help)
+This section outlines what each part of the contribution guide covers:
+
+- **Getting Started**: Step-by-step instructions to fork, clone, install, and run the project locally.
+- **How to Contribute**: Lists all the ways you can help improve StackScore — from code to documentation and design.
+- **Code Style**: Describes formatting rules and coding conventions to keep the codebase clean and consistent.
+- **Commit Guidelines**: Explains how to write clear, standardized commit messages using Conventional Commits.
+- **Pull Request Process**: Details how to submit a pull request, including branch naming, testing, and review expectations.
+- **Code of Conduct**: Sets expectations for respectful and inclusive collaboration.
+- **Need Help?**: Points to support channels like GitHub issues and team contacts for guidance.
 
 ---
 
