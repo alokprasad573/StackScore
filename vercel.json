@@ -3,15 +3,10 @@
   "framework": "react-router",
   "buildCommand": "npm run build",
   "outputDirectory": "build/client",
-  "functions": {
-    "api/index.js": {
-      "runtime": "nodejs18.x"
-    }
-  },
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "./api/index.js"
+      "destination": "./build/server/index.js"
     }
   ]
 }
