@@ -18,7 +18,7 @@ const Resume = () => {
 
     const [imageUrl, setImageUrl] = useState('');
     const [resumeUrl, setResumeUrl] = useState('');
-    const [feedback, setFeedback] = useState('');
+    const [feedback, setFeedback] = useState<Feedback | null>(null);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -46,7 +46,7 @@ const Resume = () => {
             const imageUrl = URL.createObjectURL(imageBlob);
             setImageUrl(imageUrl);
 
-            setFeedback(data.feedback);
+            setFeedback(typeof data.feedback === 'string' ? JSON.parse(data.feedback) : data.feedback);
         }
 
         loadResume();
@@ -64,7 +64,7 @@ const Resume = () => {
                 </Link>
             </nav>
             <div>
-                {(imageUrl & resumeUrl) || feedback ? (
+                {(imageUrl && resumeUrl && feedback)  ? (
                     <div className="flex flex-col">
                         <section className="feedback-section justify-center items-center gap-4 sm:gap-6 lg:gap-8 min-h-[100vh] px-4 sm:px-6 md:px-8 lg:px-10 py-4 sm:py-6">
                             <div className="page-heading py-16">
@@ -85,7 +85,7 @@ const Resume = () => {
                         <section className="feedback-section px-4 sm:px-6 md:px-8 lg:px-10 gap-y-4 sm:gap-y-6">
                             <div className="w-full">
                                 <h2 className="text-2xl sm:text-3xl font-bold mb-4">Suggestions</h2>
-                                <ATS score={feedback.ATS.score || 0} suggestions={feedback.ATS.tips || []} />
+                                <ATS score={feedback?.ATS?.score || 0} suggestions={feedback?.ATS?.tips || []} />
                             </div>
                             <div className="w-full">
                                 <Details feedback={feedback} />
