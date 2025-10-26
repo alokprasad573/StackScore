@@ -11,17 +11,31 @@ export const meta = () => ([
 
 export default function Home() {
 
-    const {auth, kv} = usePuterStore();
+    const {auth, kv, isLoading, puterReady} = usePuterStore();
     const navigate = useNavigate();
 
 
     useEffect(() => {
-        if (!auth.isAuthenticated) {
+        // Only redirect to auth if Puter is ready and user is not authenticated
+        if (auth.isAuthenticated === false && !isLoading) {
             navigate('/auth?next=/');
         }
-    }, [auth.isAuthenticated]);
+    }, [auth.isAuthenticated, isLoading]);
 
 
+
+    // Show loading state while Puter is initializing
+    if (isLoading || !puterReady) {
+        return <main className="inset-0 bg-gradient-to-b from-[#1E3A8A]/50 via-[#3B82F6]/50 to-[#60A5FA]/50">
+            <Navbar/>
+            <section className="main-section">
+                <div className="page-heading py-16">
+                    <h1>Loading...</h1>
+                    <h2>Please wait while we initialize the application.</h2>
+                </div>
+            </section>
+        </main>
+    }
 
     return <main className="inset-0 bg-gradient-to-b from-[#1E3A8A]/50 via-[#3B82F6]/50 to-[#60A5FA]/50">
         <Navbar/>

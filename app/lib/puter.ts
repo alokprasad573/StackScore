@@ -242,6 +242,12 @@ export const usePuterStore = create<PuterStore>((set, get) => {
     };
 
     const init = (): void => {
+        // Check if we're in a browser environment
+        if (typeof window === "undefined") {
+            set({ puterReady: false, isLoading: false });
+            return;
+        }
+
         const puter = getPuter();
         if (puter) {
             set({ puterReady: true });
@@ -260,7 +266,13 @@ export const usePuterStore = create<PuterStore>((set, get) => {
         setTimeout(() => {
             clearInterval(interval);
             if (!getPuter()) {
-                setError("Puter.js failed to load within 10 seconds");
+                // Don't show error in production if Puter.js fails to load
+                // Just set as not ready and let the app continue
+                set({ 
+                    puterReady: false, 
+                    isLoading: false,
+                    error: import.meta.env.DEV ? "Puter.js failed to load within 10 seconds" : null
+                });
             }
         }, 10000);
     };
