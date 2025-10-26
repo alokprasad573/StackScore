@@ -180,5 +180,3 @@ We welcome contributions! Here's how you can help:
 3. Commit changes (`git commit -m 'Add AmazingFeature'`)
 4. Push to branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-
-> 💡 **Note**: Please read our [Contributing Guidelines](CONTRIBUTING.md) before submitting PRs.
