@@ -109,7 +109,7 @@ const Upload = () => {
         <main className="inset-0 bg-gradient-to-b from-[#1E3A8A]/50 via-[#3B82F6]/50 to-[#60A5FA]/50">
             <nav className='navbar'>
                 <Link to="/">
-                    <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-gradient">Scanlytics</p>
+                    <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-gradient">StackScore</p>
                 </Link>
             </nav>
             <section className="main-section">
