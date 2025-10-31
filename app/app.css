@@ -123,7 +123,7 @@ form {
     }
 
     .navbar {
-        @apply mx-4 sm:mx-6 md:mx-8 lg:mx-[10%] flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0;
+        @apply mx-4 sm:mx-6 md:mx-8 lg:mx-[10%] flex flex-row justify-between items-center gap-x-4;
     }
 
     .score-badge {
