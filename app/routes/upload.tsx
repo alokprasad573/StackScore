@@ -119,7 +119,7 @@ const Upload = () => {
                         <>
                             <h2>{statusText}</h2>
                             <img
-                                src={statusText === "Analyzing..." ? "/images/resume-scan-2.gif" : "/images/resume-scan.gif"}
+                                src={`${import.meta.env.BASE_URL}images/${statusText === "Analyzing..." ? 'resume-scan-2.gif' : 'resume-scan.gif'}`}
                                 alt="resume-scan"
                                 className="w-[50%]"
                             />
