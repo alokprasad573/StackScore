@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "framework": "react-router",
   "buildCommand": "npm run build",
   "outputDirectory": "build/client",
   "routes": [
     { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "./build/server/index.js" }
+    { "src": "(/.*)", "dest": "/index.html" }
   ]
 }
